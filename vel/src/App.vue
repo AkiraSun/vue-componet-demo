@@ -10,6 +10,12 @@
       </ul>
       <div class="cover"></div>
     </aside>
+  <transition :name="transitionName">
+		<keep-alive>
+			<router-view class="child-view"></router-view>
+		</keep-alive>
+	</transition>
+
   </div>
 </template>
 
@@ -19,8 +25,12 @@ export default {
   data() {
     return {
       open:false,
-      locked:false
+      locked:false,
+      transitionName: 'slide-left'
     }
+  },
+  created(){
+    this.init()
   },
   methods: {
     toggle(){
@@ -35,12 +45,43 @@ export default {
         },300)
 
       }
+    },
+    init(){
+      var me = this
+      this.$router.beforeEach((to, from, next) => {
+        if(me.$history.getDirection() === 'forward'){
+          me.transitionName = 'slide-right'
+        }else{
+
+          me.transitionName = 'slide-left'
+        }
+
+        next()
+      })
     }
+
   }
 }
 </script>
 
 <style lang="less">
+
+.child-view {
+  position: absolute;
+  width:100%;
+  transition: all .8s cubic-bezier(.55,0,.1,1);
+  }
+  .slide-left-enter, .slide-right-leave-active {
+    opacity: 0;
+    -webkit-transform: translate(50px, 0);
+    transform: translate(50px, 0);
+  }
+  .slide-left-leave-active, .slide-right-enter {
+    opacity: 0;
+    -webkit-transform: translate(-50px, 0);
+    transform: translate(-50px, 0);
+  }
+
   .header {
     width: 100%;
     height: 56px;

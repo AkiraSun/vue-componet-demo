@@ -3,13 +3,14 @@
 import Vue from 'vue'
 import App from './App'
 import router from './router'
-
+import History from './history'
 Vue.config.productionTip = false
-
+var history = new History(router)
+Vue.prototype.$history = history
 /* eslint-disable no-new */
 new Vue({
   el: '#app',
   router,
-  template: '<App/>',
+  template: '<App/>',created (){console.log(this.$history)},
   components: { App }
 })
