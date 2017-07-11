@@ -4,13 +4,20 @@ import Vue from 'vue'
 import App from './App'
 import router from './router'
 import History from './history'
+import { setupPlatform } from './platform'
 Vue.config.productionTip = false
-var history = new History(router)
+const history = new History(router)
+
+const platform = setupPlatform()
 Vue.prototype.$history = history
+Vue.prototype.$platform = platform
 /* eslint-disable no-new */
 new Vue({
   el: '#app',
   router,
-  template: '<App/>',created (){console.log(this.$history)},
+  template: '<App/>',created (){
+    console.log(this.$history)
+    console.log(this.$platform)
+  },
   components: { App }
 })

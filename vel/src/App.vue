@@ -12,7 +12,8 @@
     </aside>
   <transition :name="transitionName">
 		<keep-alive>
-			<router-view class="child-view"></router-view>
+			<router-view class="child-view">
+      </router-view>
 		</keep-alive>
 	</transition>
 
@@ -49,11 +50,11 @@ export default {
     init(){
       var me = this
       this.$router.beforeEach((to, from, next) => {
+        console.log(me.$history.getDirection());
         if(me.$history.getDirection() === 'forward'){
-          me.transitionName = 'slide-right'
-        }else{
-
           me.transitionName = 'slide-left'
+        }else{
+          me.transitionName = 'slide-right'
         }
 
         next()
@@ -64,23 +65,25 @@ export default {
 }
 </script>
 
-<style lang="less">
-
+<style lang="scss">
+#app {
+  height: 100%;
+}
 .child-view {
   position: absolute;
   width:100%;
   transition: all .8s cubic-bezier(.55,0,.1,1);
   }
-  .slide-left-enter, .slide-right-leave-active {
-    opacity: 0;
-    -webkit-transform: translate(50px, 0);
-    transform: translate(50px, 0);
-  }
-  .slide-left-leave-active, .slide-right-enter {
-    opacity: 0;
-    -webkit-transform: translate(-50px, 0);
-    transform: translate(-50px, 0);
-  }
+.slide-left-enter, .slide-right-leave-active {
+  opacity: 0;
+  -webkit-transform: translate(50px, 0);
+  transform: translate(50px, 0);
+}
+.slide-left-leave-active, .slide-right-enter {
+  opacity: 0;
+  -webkit-transform: translate(-50px, 0);
+  transform: translate(-50px, 0);
+}
 
   .header {
     width: 100%;
