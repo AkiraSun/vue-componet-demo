@@ -5,12 +5,18 @@ import App from './App'
 import router from './router'
 import History from './history'
 import { setupPlatform } from './platform'
+import vmLog from 'vm-log'
+
 Vue.config.productionTip = false
 const history = new History(router)
 
 const platform = setupPlatform()
 Vue.prototype.$history = history
 Vue.prototype.$platform = platform
+if(process.env.NODE_ENV == 'development'){
+  Vue.use(vmLog)
+}
+
 /* eslint-disable no-new */
 new Vue({
   el: '#app',

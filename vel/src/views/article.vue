@@ -16,7 +16,7 @@ export default {
   methods: {
     go(id) {
       this.$router.push({
-        path: "article"
+        path: "home"
       });
     },
   }

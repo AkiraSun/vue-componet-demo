@@ -52,9 +52,9 @@ export default {
       this.$router.beforeEach((to, from, next) => {
         console.log(me.$history.getDirection());
         if(me.$history.getDirection() === 'forward'){
-          me.transitionName = 'slide-left'
-        }else{
           me.transitionName = 'slide-right'
+        }else{
+          me.transitionName = 'slide-left'
         }
 
         next()
