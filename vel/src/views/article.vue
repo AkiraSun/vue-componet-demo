@@ -15,9 +15,11 @@ export default {
   },
   methods: {
     go(id) {
-      this.$router.push({
-        path: "home"
-      });
+      // this.$router.push({
+      //   path: "/"
+      // });
+      //进入首页
+      this.$history.toRoot()
     },
   }
 }

@@ -12,7 +12,7 @@
     </aside>
   <transition :name="transitionName">
 		<keep-alive>
-			<router-view class="child-view">
+			<router-view class="app-view">
       </router-view>
 		</keep-alive>
 	</transition>
@@ -27,7 +27,7 @@ export default {
     return {
       open:false,
       locked:false,
-      transitionName: 'slide-left'
+      transitionName: 'slide-right'
     }
   },
   created(){
@@ -52,9 +52,9 @@ export default {
       this.$router.beforeEach((to, from, next) => {
         console.log(me.$history.getDirection());
         if(me.$history.getDirection() === 'forward'){
-          me.transitionName = 'slide-right'
-        }else{
           me.transitionName = 'slide-left'
+        }else{
+          me.transitionName = 'slide-right'
         }
 
         next()
@@ -69,21 +69,42 @@ export default {
 #app {
   height: 100%;
 }
-.child-view {
-  position: absolute;
-  width:100%;
-  transition: all .8s cubic-bezier(.55,0,.1,1);
-  }
-.slide-left-enter, .slide-right-leave-active {
-  opacity: 0;
-  -webkit-transform: translate(50px, 0);
-  transform: translate(50px, 0);
-}
-.slide-left-leave-active, .slide-right-enter {
-  opacity: 0;
-  -webkit-transform: translate(-50px, 0);
-  transform: translate(-50px, 0);
-}
+.slide-left-enter,
+	.slide-right-leave-active {
+		opacity: 0;
+		-webkit-transform: translate(50vw, 0);
+	}
+
+	.slide-left-leave-active,
+	.slide-right-enter {
+		opacity: 0.1;
+		-webkit-transform: translate(-50vw, 0);
+	}
+
+	.app-view {
+		z-index: 1;
+		width: 100vw;
+		height: 100vh;
+		overflow: auto;
+		position: absolute;
+		transition: transform 0.3s ease;
+		-webkit-overflow-scrolling: touch;
+	}
+// .child-view {
+//   position: absolute;
+//   width:100%;
+//   transition: all .8s cubic-bezier(.55,0,.1,1);
+//   }
+// .slide-left-enter, .slide-right-leave-active {
+//   opacity: 0;
+//   -webkit-transform: translate(50px, 0);
+//   transform: translate(50px, 0);
+// }
+// .slide-left-leave-active, .slide-right-enter {
+//   opacity: 0;
+//   -webkit-transform: translate(-50px, 0);
+//   transform: translate(-50px, 0);
+// }
 
   .header {
     width: 100%;
