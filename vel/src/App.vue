@@ -66,6 +66,7 @@ export default {
 </script>
 
 <style lang="scss">
+@import "./src/style/normalize.scss";
 #app {
   height: 100%;
 }

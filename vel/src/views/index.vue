@@ -1,12 +1,12 @@
 <template>
-  <div class="home">
-    <a class="link" @click="go">article</a>
+  <div class="index">
+    <a class="link" @click="go">index</a>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'home',
+  name: 'article',
   data() {
     return {
       open:false,
@@ -15,21 +15,22 @@ export default {
   },
   methods: {
     go(id) {
-			this.$router.push({
-				path: "article"
-			});
-		},
+      this.$router.push({
+        path: "scroll"
+      });
+
+    },
   }
 }
 </script>
 
-<style lang="less">
+<style lang="scss">
 .link {
   margin-top: 30px;
   display: inline-block;
 }
-.home {
-  background-color: red;
+.index {
+  background-color: yellow;
   width: 100%;
   height: 100%;
 }

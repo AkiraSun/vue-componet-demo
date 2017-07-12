@@ -25,7 +25,7 @@ export default {
 }
 </script>
 
-<style lang="less">
+<style lang="scss">
 .link {
   margin-top: 30px;
   display: inline-block;
