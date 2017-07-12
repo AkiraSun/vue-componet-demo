@@ -3,9 +3,9 @@
 import Vue from 'vue'
 import App from './App'
 import router from './router'
-import History from './history'
-import { setupPlatform } from './platform'
+import History from './lib/utils/history'
 import vmLog from 'vm-log'
+import { setupPlatform } from './lib/utils/platform'
 
 Vue.config.productionTip = false
 const history = new History(router)
