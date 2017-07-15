@@ -19,7 +19,7 @@ export default {
     return {
       open:false,
       locked:false,
-      jsScrollInstance: null,         // js滚动的实例，iscroll实例
+      jsScrollInstance: null,         // js滚动的实例，better-scroll实例
       lilist:[1,2,3,4,5,6,7,8,94,11,2,3,4,4,5,6,1,2,34,5,6,2,2,2,2]
     }
   },
@@ -29,15 +29,15 @@ export default {
     }
   },
   mounted () {
-    this.initJsScroll()
+    window.setTimeout(()=>{
+      this.initJsScroll()
+    },1000)
   },
   methods: {
     initJsScroll() {
-      let JsScroll = require('iscroll')
+      let JsScroll = require('better-scroll')
       let me = this
       if(typeof JsScroll !== 'undefined'){
-        console.log(this.$refs);
-        console.log(me.myscrollbox);
         this.jsScrollInstance = new JsScroll(me.myscrollbox)
       }else {
         console.log('没有初始化');
@@ -52,7 +52,7 @@ export default {
 }
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 .link {
   margin-top: 30px;
   display: inline-block;
@@ -63,7 +63,14 @@ export default {
   height: 100%;
 }
 .myscroll {
+  position: relative;
   height: 400px;
+  width: 100%;
   overflow: hidden;
+}
+ul {
+  width: 100%;
+  position: absolute;
+  text-align: left;
 }
 </style>

@@ -3,16 +3,19 @@
 import Vue from 'vue'
 import App from './App'
 import router from './router'
+import VueLazyload from 'vue-lazyload'
 import History from './lib/utils/history'
 import vmLog from 'vm-log'
 import { setupPlatform } from './lib/utils/platform'
 
 Vue.config.productionTip = false
 const history = new History(router)
-
-const platform = setupPlatform()
+// const platform = setupPlatform()
 Vue.prototype.$history = history
-Vue.prototype.$platform = platform
+// Vue.prototype.$platform = platform
+// use options
+Vue.use(VueLazyload)
+
 if(process.env.NODE_ENV == 'development'){
   Vue.use(vmLog)
 }
@@ -21,7 +24,8 @@ if(process.env.NODE_ENV == 'development'){
 new Vue({
   el: '#app',
   router,
-  template: '<App/>',created (){
+  template: '<App/>',
+  created (){
     console.log(this.$history)
     console.log(this.$platform)
   },
