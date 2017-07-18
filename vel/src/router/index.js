@@ -5,6 +5,7 @@ import scroll from '@/views/scroll'
 import article from '@/views/article'
 import index from '@/views/index'
 import lazy from '@/views/lazy'
+import lazyload from '@/views/lazyload'
 
 Vue.use(Router)
 
@@ -29,6 +30,11 @@ export default new Router({
       path: '/article',
       name: 'article',
       component: article
+    },
+    {
+      path: '/lazyload',
+      name: 'lazyload',
+      component: lazyload
     }
   ]
 })
