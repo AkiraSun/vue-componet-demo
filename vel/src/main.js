@@ -27,7 +27,12 @@ new Vue({
   template: '<App/>',
   created (){
     console.log(this.$history)
-    console.log(this.$platform)
+    // console.log(this.$platform)
+    console.log(this.$root);
+  },
+  data: {
+    //用于非父子组件通信，bus是中央事件总线
+    Bus: new Vue()
   },
   components: { App }
 })

@@ -6,6 +6,8 @@ import article from '@/views/article'
 import index from '@/views/index'
 import lazy from '@/views/lazy'
 import lazyload from '@/views/lazyload'
+import animation from '@/views/animation'
+import bus from '@/views/bus'
 
 Vue.use(Router)
 
@@ -35,6 +37,16 @@ export default new Router({
       path: '/lazyload',
       name: 'lazyload',
       component: lazyload
+    },
+    {
+      path: '/animation',
+      name: 'animation',
+      component: animation
+    },
+    {
+      path: '/bus',
+      name: 'bus',
+      component: bus
     }
   ]
 })
