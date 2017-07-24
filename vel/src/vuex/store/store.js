@@ -1,3 +1,4 @@
+//单例模块学习  对应input.vue
 import Vue from 'vue'
 import Vuex from 'vuex'
 
@@ -6,6 +7,8 @@ Vue.use(Vuex)
 const state = {
   count:1
 }
+
+//同步方法
 const mutations = {
   add(state,n){
     state.count+=n
@@ -15,10 +18,12 @@ const mutations = {
   }
 }
 
+//vuex内部过滤器
 const getters = {
   count:state=>state.count+=100
 }
 
+//action可以异步触发mutations
 const actions = {
   addAction(context){
     context.commit('add',12)

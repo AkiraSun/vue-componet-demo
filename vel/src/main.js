@@ -8,6 +8,9 @@ import History from './lib/utils/history'
 import vmLog from 'vm-log'
 import { setupPlatform } from './lib/utils/platform'
 
+
+//vuexxxx
+import store from './vuex/index'
 Vue.config.productionTip = false
 const history = new History(router)
 // const platform = setupPlatform()
@@ -24,6 +27,7 @@ if(process.env.NODE_ENV == 'development'){
 new Vue({
   el: '#app',
   router,
+  store,
   template: '<App/>',
   created (){
     console.log(this.$history)
