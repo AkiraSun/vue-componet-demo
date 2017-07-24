@@ -8,6 +8,7 @@ import lazy from '@/views/lazy'
 import lazyload from '@/views/lazyload'
 import animation from '@/views/animation'
 import bus from '@/views/bus'
+import input from '@/views/input'
 
 Vue.use(Router)
 
@@ -47,6 +48,11 @@ export default new Router({
       path: '/bus',
       name: 'bus',
       component: bus
+    },
+    {
+      path: '/input',
+      name: 'input',
+      component: input
     }
   ]
 })
