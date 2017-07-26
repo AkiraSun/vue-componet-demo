@@ -10,6 +10,7 @@ import animation from '@/views/animation'
 import bus from '@/views/bus'
 import input from '@/views/input'
 import vuex from '@/views/vuex'
+import flex from '@/views/flex'
 
 Vue.use(Router)
 
@@ -59,6 +60,11 @@ export default new Router({
       path: '/vuex',
       name: 'vuex',
       component: vuex
+    },
+    {
+      path: '/flex',
+      name: 'flex',
+      component: flex
     }
   ]
 })

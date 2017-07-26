@@ -27,11 +27,15 @@ export default {
 </script>
 
 <style lang="scss">
+// @import "../style/style";
   .vuex {
     background-color: gray;
+    font-size: 0;
     button {
-      width: 50px;
-      height: 50px;
+      background-color: blue;
+      font-size: 50px;
+      width: 250px;
+      height: 100px;
     }
   }
 </style>
