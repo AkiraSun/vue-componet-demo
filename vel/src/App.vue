@@ -11,6 +11,7 @@
       <div class="cover"></div>
     </aside>
   <transition :name="transitionName">
+  <!-- <transition :name="pageTransitionName"> -->
 		<keep-alive>
 			<router-view class="app-view">
       </router-view>
@@ -23,11 +24,20 @@
 <script>
 export default {
   name: 'app',
+  props: {
+      // 转场动画名称
+      // ios-transition/fade-bottom-transition/zoom-transition/fade-right-transition/fade-transition
+      pageTransition: {
+        type: String,
+        default () { return 'zoom-transition' }
+      }
+    },
   data() {
     return {
       open:false,
       locked:false,
-      transitionName: 'slide-right'
+      transitionName: 'slide-right',
+      // pageTransitionName: null,
     }
   },
   created(){
@@ -49,6 +59,11 @@ export default {
     },
     init(){
       var me = this
+      // this.$router.beforeEach((to, from, next) => {
+      //     me.pageTransitionName = `${me.pageTransition}-${me.$history.getDirection()}`
+      //     // vm.$app && vm.$app.setEnabled(false, 500)
+      //     next()
+      //   })
       this.$router.beforeEach((to, from, next) => {
         console.log(me.$history.getDirection());
         if(me.$history.getDirection() === 'forward'){

@@ -7,20 +7,23 @@ import VueLazyload from 'vue-lazyload'
 import History from './lib/utils/history'
 import vmLog from 'vm-log'
 import { setupPlatform } from './lib/utils/platform'
+import { setupConfig } from './lib/utils/config'
 
 
 //vuexxxx
 import store from './vuex/index'
 Vue.config.productionTip = false
 const history = new History(router)
-// const platform = setupPlatform()
+const platform = setupPlatform()
+const config = setupConfig(platform)
+Vue.prototype.$config = config
 Vue.prototype.$history = history
-// Vue.prototype.$platform = platform
+Vue.prototype.$platform = platform
 // use options
 Vue.use(VueLazyload)
 
 if(process.env.NODE_ENV == 'development'){
-  Vue.use(vmLog)
+  // Vue.use(vmLog)
 }
 
 /* eslint-disable no-new */
