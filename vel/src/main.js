@@ -9,6 +9,7 @@ import vmLog from 'vm-log'
 import { setupPlatform } from './lib/utils/platform'
 import { setupConfig } from './lib/utils/config'
 
+//components
 
 //vuexxxx
 import store from './vuex/index'
@@ -19,8 +20,10 @@ const config = setupConfig(platform)
 Vue.prototype.$config = config
 Vue.prototype.$history = history
 Vue.prototype.$platform = platform
+// Vue.prototype.$actionSheet = ActionSheet
 // use options
 Vue.use(VueLazyload)
+
 
 if(process.env.NODE_ENV == 'development'){
   // Vue.use(vmLog)
