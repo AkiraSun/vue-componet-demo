@@ -17,6 +17,14 @@ export default {
       show:false
     }
   },
+  mounted(){
+
+    let arr=['hello','world']
+    let list=arr.entries();
+    console.log(list.next().value);
+    console.log(list.next().value);
+
+  },
   methods: {
     go(id) {
       // this.$router.push({

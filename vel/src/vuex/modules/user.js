@@ -1,5 +1,5 @@
 /**
-* 用户配置  模块化写法  文件module,index.js,vuex.vue,main.js倒入
+* 用户配置  模块化写法  文件module,index.js,vuex.vue,main.js倒入 对应例子vuex.vue
 * 例子  https://github.com/hzzly/xyy-vue
 **/
 

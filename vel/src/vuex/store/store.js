@@ -18,7 +18,7 @@ const mutations = {
   }
 }
 
-//vuex内部过滤器
+//vuex内部过滤器,在执行action之前先执行getters
 const getters = {
   count:state=>state.count+=100
 }
